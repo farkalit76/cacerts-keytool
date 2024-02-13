@@ -1,0 +1,25 @@
+Import the Certificate as a Trusted Certificate (Always Enter password : changeit )
+==================================================================================================================
+Go to the directory containing the public certificate file Example.cer.
+
+To Show the certificate entries use the command:
+    CMD>keytool -printcert -file Example.cer
+	
+List Trusted CA Certs (that is keystore file can be listed as follow, note this file does not has extension 'cer'):
+	CMD>keytool -list -keystore $JAVA_HOME/jre/lib/security/cacerts
+	CMD>keytool -list -keystore $TOMCAT_HOME/conf/cacertes
+	
+	OR you may go to folder and run the direct command
+		CMD>keytool -list -keystore  cacerts
+ 
+
+ To save the output in a file always use >> filename.txt
+	CMD>keytool -list -keystore $JAVA_HOME/jre/lib/security/cacerts >> filename.txt
+
+Type the following command on one line to import it:
+	CMD> keytool -import -alias usmanca -file Example.cer -keystore exampleraystore		
+	
+------------------------------
+Or like this Import command-->
+
+    CMD> keytool -importcert -alias gitlabqiwa -keystore ../lib/security/cacerts -file C:/Farkalit/downloads/gitlab.qiwa.tech.crt
